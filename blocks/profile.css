@@ -8,10 +8,6 @@
 }
 
 .profile__info {
-  grid-template-columns: minmax(auto, 200px) auto;
-}
-
-.profile__info {
   display: grid;
   grid-template-areas:
     "title button"
@@ -82,6 +78,10 @@
     padding-right: 19px;
     padding-bottom: 31px;
     width: auto;
+  }
+
+  .profile__info {
+    grid-template-columns: minmax(auto, 200px) auto;
   }
 
   .profile__image {
