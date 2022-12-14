@@ -1,8 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-
-  height: 74px;
+  min-height: 74px;
   padding-top: 45px;
   background-color: black;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);

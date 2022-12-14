@@ -1,9 +1,8 @@
 .footer {
   width: 318px;
-  height: 18px;
   padding-top: 67px;
   padding-bottom: 60px;
-  margin-left: 440px;
+  margin-left: auto;
   max-width: 880px;
   flex-shrink: 0;
 }
@@ -17,7 +16,7 @@
   margin: auto;
 }
 
-@media screen and (max-width: 596px) {
+@media screen and (max-width: 480px) {
   .footer {
     padding-top: 48px;
     padding-bottom: 36px;
@@ -27,4 +26,13 @@
   .footer__content {
     font-size: 14px;
   }
+}
+
+@media screen and (min-width: 481px) and (max-width: 586px) {
+  .footer {
+    width: 581px;
+  }
+}
+
+@media screen and (min-width: 587px) and (max-width: 740px) {
 }
