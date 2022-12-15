@@ -38,5 +38,3 @@ A responsive design was the technique used for this project, where I tried to en
 - Link to my project at GitHub Pages:
 
 https://patourn.github.io/se_project_aroundtheus/
-
-<img width="469" alt="Screenshot 2022-12-14 at 11 24 23 AM" src="https://user-images.githubusercontent.com/116469946/207651772-6f9bd9d5-a88b-4617-b043-4c70bc087bb2.png">
