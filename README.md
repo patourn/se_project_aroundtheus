@@ -22,7 +22,7 @@ Good luck and have fun!
 
 - Project Name: Around The U.S.
 
-- Project Description:
+- Project description:
 
 In this project, I created an interactive page where users can add and remove photos, like photos of other users, and make a few minor adjustments to their own profile. I worked with Figma design, which provided me layouts for mobile and desktop. For tablets, I based my design on my project's brief.
 
