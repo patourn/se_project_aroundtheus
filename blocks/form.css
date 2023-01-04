@@ -14,7 +14,6 @@
 }
 
 .form__input {
-  /*width: auto;*/
   border: none;
   height: 14px;
   padding-top: 15.74px;
@@ -23,8 +22,6 @@
 }
 
 .form__button {
-  /*display: flex;
-  flex-direction: column;*/
   height: 50.15px;
   color: #fff;
   background-color: #000;

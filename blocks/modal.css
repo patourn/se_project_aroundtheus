@@ -8,7 +8,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /*display: none;*/
   align-items: center;
   justify-content: center;
 }
@@ -22,9 +21,6 @@
   height: 330px;
   background-color: #fff;
   border-radius: 10px;
-  /*position: absolute;
-  top: 50%;
-  left: 50%;*/
 }
 
 .modal__heading {
@@ -42,12 +38,8 @@
   width: 40px;
   height: 40px;
   border: none;
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
   position: absolute;
   top: 162px;
-  /*right: 40px;*/
   left: 924px;
   transform: rotate(90deg);
 }
@@ -69,9 +61,15 @@
 
   .modal__heading {
     width: 238px;
-    margin-top: 25px;
-    margin-right: 22px;
-    margin-bottom: 45px;
-    margin-left: 22px;
+    margin: 25px 22px 45px 22px;
+  }
+
+  .modal__close-button {
+    width: 26px;
+    height: 26px;
+    top: -40px;
+    left: 253px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   }
 }
