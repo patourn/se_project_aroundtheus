@@ -34,7 +34,7 @@
   margin-top: 48px;
 }
 
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 630px) {
   .form__fieldset {
     width: 238px;
   }
