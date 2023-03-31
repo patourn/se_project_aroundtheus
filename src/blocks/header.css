@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 74px;
+  padding-top: 45px;
+  background-color: black;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+  padding-bottom: 41px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 596px) {
+  .header {
+    padding-top: 28px;
+    max-width: 100%;
+  }
+
+  .header__logo {
+    width: 126px;
+    height: 24px;
+    padding-left: 27px;
+    padding-bottom: 32px;
+  }
+}
