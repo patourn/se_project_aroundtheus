@@ -53,10 +53,10 @@ class Card {
 
   getView() {
     // this._cardElement = document
-    this._cardElement = this._getTemplate()
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
+    this._cardElement = this._getTemplate();
+    // .querySelector(this._cardSelector)
+    // .content.querySelector(".card")
+    // .cloneNode(true);
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardTitle = this._cardElement.querySelector(".card__title");
     this._likeButton = this._cardElement.querySelector(".card__like-button");
