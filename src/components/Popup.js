@@ -38,7 +38,7 @@ class Popup {
 
 export default Popup;
 
-// I had this on utils.js:
+// In project 7, I had this in utils.js:
 
 // function closeModalByEscape(e) {
 //   if (e.key === "Escape") {
