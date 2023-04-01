@@ -49,7 +49,11 @@ import {
 // ];
 
 function createCard(cardData) {
-  const card = new Card(cardData, cardSelector, openImageModal);
+  const card = new Card(
+    { name: cardData.name, link: cardData.link },
+    "#card-template"
+  );
+
   return card.getView();
 }
 

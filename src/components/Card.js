@@ -48,11 +48,12 @@ class Card {
   };
 
   _handleDeleteCard = () => {
-    this._cardElement.remove();
+    this._deleteButton.remove();
   };
 
   getView() {
-    this._cardElement = document
+    // this._cardElement = document
+    this._cardElement = this._getTemplate()
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
