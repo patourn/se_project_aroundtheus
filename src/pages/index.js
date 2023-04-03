@@ -6,7 +6,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-// import { openModal, closeModal } from "../../scripts/utils.js";
+import { openModal, closeModal } from "../components/Popup.js";
 
 import {
   initialCards,
@@ -19,6 +19,15 @@ import {
   profileEditButton,
   previewImageModal,
   cardsWrap,
+  profileEditModal,
+  placeAddModal,
+  profileTitleInput,
+  profileTitle,
+  profileDescriptionInput,
+  profileDescription,
+  placeTitleInput,
+  // previewImage,
+  imageURLInput,
 } from "../utils/constant.js";
 
 // const initialCards = [

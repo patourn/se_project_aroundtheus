@@ -40,29 +40,29 @@ export default Popup;
 
 // In project 7, I had this in utils.js:
 
-// function closeModalByEscape(e) {
-//   if (e.key === "Escape") {
-//     const openModal = document.querySelector(".modal_opened");
-//     closeModal(openModal);
-//   }
-// }
+function closeModalByEscape(e) {
+  if (e.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    closeModal(openModal);
+  }
+}
 
-// export function closeModal(modal) {
-//   document.removeEventListener("keydown", closeModalByEscape);
-//   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+export function closeModal(modal) {
+  document.removeEventListener("keydown", closeModalByEscape);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 
-//   modal.classList.remove("modal_opened");
-// }
+  modal.classList.remove("modal_opened");
+}
 
-// export function openModal(modal) {
-//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
+export function openModal(modal) {
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 
-//   document.addEventListener("keydown", closeModalByEscape);
-//   modal.classList.add("modal_opened");
-// }
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.classList.add("modal_opened");
+}
 
-// export function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closeModal(evt.target);
-//   }
-// }
+export function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
+  }
+}
