@@ -36,11 +36,7 @@ class Popup {
   }
 }
 
-export default Popup;
-
-// In project 7, I had this in utils.js:
-
-function closeModalByEscape(e) {
+export function closeModalByEscape(e) {
   if (e.key === "Escape") {
     const openModal = document.querySelector(".modal_opened");
     closeModal(openModal);
@@ -66,3 +62,5 @@ export function closeModalOnRemoteClick(evt) {
     closeModal(evt.target);
   }
 }
+
+export default Popup;

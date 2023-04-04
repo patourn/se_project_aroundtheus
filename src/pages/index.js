@@ -1,11 +1,11 @@
 import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import Popup from "../components/Popup.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
+// import Popup from "../components/Popup.js";
+// import PopupWithForm from "../components/PopupWithForm.js";
+// import PopupWithImage from "../components/PopupWithImage.js";
+// import Section from "../components/Section.js";
+// import UserInfo from "../components/UserInfo.js";
 import { openModal, closeModal } from "../components/Popup.js";
 
 import {
@@ -26,7 +26,6 @@ import {
   profileDescriptionInput,
   profileDescription,
   placeTitleInput,
-  // previewImage,
   imageURLInput,
 } from "../utils/constant.js";
 
@@ -66,7 +65,7 @@ function createCard(cardData) {
   return card.getView();
 }
 
-const cardSelector = "#card-template";
+// const cardSelector = "#card-template";
 
 //Elements and Wrappers//
 

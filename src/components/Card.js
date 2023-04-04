@@ -1,4 +1,6 @@
-// import previewImage from "../utils/constant.js";
+import { previewImage } from "../utils/constant";
+import { previewModalCaption } from "../utils/constant";
+import { openModal } from "./Popup";
 
 class Card {
   constructor({ name, link }, cardTemplate, handleImageClick) {
@@ -29,16 +31,8 @@ class Card {
     });
   }
 
-  // _setEventListeners() {
-  //   this._cardImage.addEventListener("click", () =>
-  //     this._handleImageClick(this._name, this._link)
-  //   );
-  //   this._deleteButton.addEventListener("click", this._handleDeleteCard);
-  //   this._likeButton.addEventListener("click", this._handleLikeIcon);
-  // }
-
   _openImageModal() {
-    this._handleImageClick(this._name, this._link);
+    this._handleImageClick({ name: this._name, link: this._link });
   }
 
   _handleLikeIcon = () => {
@@ -68,7 +62,7 @@ class Card {
       previewImage.src = this._link;
       previewImage.alt = this._name;
       previewModalCaption.textContent = this._name;
-      openModal(previewImageModal);
+      openModal(previewImage);
     });
 
     return this._cardElement;
