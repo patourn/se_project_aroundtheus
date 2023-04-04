@@ -27,6 +27,7 @@ import {
   profileDescription,
   placeTitleInput,
   imageURLInput,
+  cardTemplate,
 } from "../utils/constant.js";
 
 // const initialCards = [

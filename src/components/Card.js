@@ -40,7 +40,7 @@ class Card {
   };
 
   _handleDeleteCard = () => {
-    this._deleteButton.remove();
+    this._cardElement.remove();
   };
 
   getView() {
