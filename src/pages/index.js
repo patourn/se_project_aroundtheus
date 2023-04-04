@@ -1,12 +1,8 @@
 import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-// import Popup from "../components/Popup.js";
-// import PopupWithForm from "../components/PopupWithForm.js";
-// import PopupWithImage from "../components/PopupWithImage.js";
-// import Section from "../components/Section.js";
-// import UserInfo from "../components/UserInfo.js";
 import { openModal, closeModal } from "../components/Popup.js";
+import PopupWithImage from "../components/PopupWithImage";
 
 import {
   initialCards,
@@ -27,86 +23,21 @@ import {
   profileDescription,
   placeTitleInput,
   imageURLInput,
-  cardTemplate,
 } from "../utils/constant.js";
 
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-//   },
-// ];
+const popupWithImage = new PopupWithImage("#preview-image-modal");
 
 function createCard(cardData) {
   const card = new Card(
     { name: cardData.name, link: cardData.link },
-    "#card-template"
+    "#card-template",
+    ({ name, link }) => {
+      popupWithImage.open(name, link);
+    }
   );
 
   return card.getView();
 }
-
-// const cardSelector = "#card-template";
-
-//Elements and Wrappers//
-
-// const cardsWrap = document.querySelector(".cards__list");
-// const profileEditButton = document.querySelector("#profile-edit-button");
-// const profileEditModal = document.querySelector("#profile-edit-modal");
-// const profileEditCloseButton = profileEditModal.querySelector(
-//   ".modal__close-button"
-// );
-// const profileEditForm = document.querySelector("#edit-profile-form");
-// const profileTitle = document.querySelector(".profile__title");
-// const profileDescription = document.querySelector(".profile__description");
-// const cardListEl = document.querySelector(".cards__list");
-// //
-// const profileAddButton = document.querySelector(".profile__add-button");
-// const placeAddModal = document.querySelector("#place-add-modal");
-// const placeAddCloseButton = placeAddModal.querySelector(".modal__close-button");
-// const addPlaceForm = document.querySelector("#add-place-form");
-// const addPlaceSubmitButton = addPlaceForm.querySelector(".form__button");
-// //
-// const previewImageModal = document.querySelector("#preview-image-modal");
-// const previewImageCloseButton = previewImageModal.querySelector(
-//   ".modal__clse-button"
-// );
-// const previewImage = document.querySelector(".modal__image");
-// const previewModalCaption = document.querySelector(".modal__caption");
-
-// //
-// const profileTitleInput = document.querySelector("#profile-title-input");
-// const profileDescriptionInput = document.querySelector(
-//   "#profile-description-input"
-// );
-// const placeTitleInput = document.querySelector("#place-title-input");
-// const imageURLInput = document.querySelector("#image-url-input");
-// //
-
-// const cardTemplate =
-//   document.querySelector("#card-template").content.firstElementChild;
-
-//
 
 function renderCard(cardData) {
   const cardElement = createCard(cardData);
@@ -156,7 +87,7 @@ placeAddCloseButton.addEventListener("click", () => closeModal(placeAddModal));
 previewImageCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
-//
+
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 //Validation//
