@@ -32,10 +32,8 @@ export const profileEditCloseButton = profileEditModal.querySelector(
   ".modal__close-button"
 );
 export const profileEditForm = document.querySelector("#edit-profile-form");
-export const profileTitle = document.querySelector(".profile__title");
-export const profileDescription = document.querySelector(
-  ".profile__description"
-);
+export const profileTitle = ".profile__title";
+export const profileDescription = ".profile__description";
 export const cardListEl = document.querySelector(".cards__list");
 //
 export const profileAddButton = document.querySelector(".profile__add-button");

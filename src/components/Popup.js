@@ -36,31 +36,4 @@ class Popup {
   }
 }
 
-export function closeModalByEscape(e) {
-  if (e.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
-    closeModal(openModal);
-  }
-}
-
-export function closeModal(modal) {
-  document.removeEventListener("keydown", closeModalByEscape);
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-
-  modal.classList.remove("modal_opened");
-}
-
-export function openModal(modal) {
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-
-  document.addEventListener("keydown", closeModalByEscape);
-  modal.classList.add("modal_opened");
-}
-
-export function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
-  }
-}
-
 export default Popup;

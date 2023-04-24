@@ -11,7 +11,7 @@ class PopupWithForm extends Popup {
 
   close() {
     this._form.reset();
-    super.close(); //super refers to the parent's class properties
+    super.close();
   }
 
   _getInputValues() {

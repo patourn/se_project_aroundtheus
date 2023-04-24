@@ -1,7 +1,3 @@
-import { previewImage } from "../utils/constant";
-import { previewModalCaption } from "../utils/constant";
-import { openModal } from "./Popup";
-
 class Card {
   constructor({ name, link }, cardTemplate, handleImageClick) {
     this._name = name;
@@ -31,10 +27,6 @@ class Card {
     });
   }
 
-  _openImageModal() {
-    this._handleImageClick({ name: this._name, link: this._link });
-  }
-
   _handleLikeIcon = () => {
     this._likeButton.classList.toggle("card__like-button_active");
   };
@@ -57,13 +49,6 @@ class Card {
     this._cardTitle.textContent = this._name;
 
     this._setEventListeners();
-
-    this._cardImage.addEventListener("click", () => {
-      previewImage.src = this._link;
-      previewImage.alt = this._name;
-      previewModalCaption.textContent = this._name;
-      openModal(previewImage);
-    });
 
     return this._cardElement;
   }
