@@ -30,9 +30,9 @@ import {
 const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
   const card = createCard(cardData);
   section.addItem(card);
+  addCardPopup.close();
 });
 addCardPopup.setEventListeners();
-addCardPopup.open();
 
 const userInfo = new UserInfo({
   nameSelector: profileTitle,
@@ -70,28 +70,6 @@ function createCard(cardData) {
   return card.getView();
 }
 
-// function renderCard(cardData) {
-//   const cardElement = createCard(cardData);
-//   cardsWrap.prepend(cardElement);
-// }
-
-// function handleProfileEditForm(event) {
-//   event.preventDefault();
-//   profileTitle.textContent = profileTitleInput.value;
-//   profileDescription.textContent = profileDescriptionInput.value;
-//   closeModal(profileEditModal);
-// }
-
-// function handleProfileAddButton(event) {
-//   event.preventDefault();
-//   const name = placeTitleInput.value;
-//   const link = imageURLInput.value;
-//   renderCard({ name, link }, cardsWrap);
-//   closeModal(placeAddModal);
-//   addPlaceForm.reset();
-//   addFormValidator.disableSubmitBtn();
-// }
-
 function openImageModal(data) {
   previewImage.src = data.link;
   previewImage.alt = data.name;
@@ -101,9 +79,6 @@ function openImageModal(data) {
 
 //Form Listeners//
 
-// profileEditForm.addEventListener("submit", handleProfileEditForm);
-// addPlaceForm.addEventListener("submit", handleProfileAddButton);
-
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -112,12 +87,9 @@ profileEditButton.addEventListener("click", () => {
 profileEditCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
-profileAddButton.addEventListener("click", () => openModal(placeAddModal));
-// placeAddCloseButton.addEventListener("click", () => closeModal(placeAddModal));
+profileAddButton.addEventListener("click", () => addCardPopup.open());
 
 previewImageCloseButton.addEventListener("click", () => popupWithImage.close());
-
-// initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 //Validation//
 
