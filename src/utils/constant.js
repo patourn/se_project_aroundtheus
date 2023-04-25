@@ -62,3 +62,11 @@ export const imageURLInput = document.querySelector("#image-url-input");
 
 export const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+export const validationSettings = {
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__error_visible",
+};

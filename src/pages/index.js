@@ -25,6 +25,7 @@ import {
   profileDescription,
   placeTitleInput,
   imageURLInput,
+  validationSettings,
 } from "../utils/constant.js";
 
 const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
@@ -57,6 +58,7 @@ const editProfilePopup = new PopupWithForm("#profile-edit-modal", (values) => {
 editProfilePopup.setEventListeners();
 
 const popupWithImage = new PopupWithImage("#preview-image-modal");
+popupWithImage.setEventListeners();
 
 function createCard(cardData) {
   const card = new Card(
@@ -70,36 +72,11 @@ function createCard(cardData) {
   return card.getView();
 }
 
-function openImageModal(data) {
-  previewImage.src = data.link;
-  previewImage.alt = data.name;
-  previewModalCaption.textContent = data.name;
-  openModal(previewImageModal);
-}
-
-//Form Listeners//
-
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
+  editProfilePopup.open();
 });
-profileEditCloseButton.addEventListener("click", () =>
-  closeModal(profileEditModal)
-);
+
 profileAddButton.addEventListener("click", () => addCardPopup.open());
-
-previewImageCloseButton.addEventListener("click", () => popupWithImage.close());
-
-//Validation//
-
-const validationSettings = {
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__button",
-  inactiveButtonClass: "form__button_disabled",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__error_visible",
-};
 
 const editFormValidator = new FormValidator(
   validationSettings,
