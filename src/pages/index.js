@@ -32,6 +32,7 @@ const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
   const card = createCard(cardData);
   section.addItem(card);
   addCardPopup.close();
+  addFormValidator.disableSubmitBtn();
 });
 addCardPopup.setEventListeners();
 
@@ -73,15 +74,22 @@ function createCard(cardData) {
 }
 
 profileEditButton.addEventListener("click", () => {
+  const userData = userInfo.getUserInfo();
+  profileTitleInput.value = userData.name;
+  profileDescriptionInput.value = userData.job;
   editProfilePopup.open();
 });
 
-profileAddButton.addEventListener("click", () => addCardPopup.open());
+profileAddButton.addEventListener("click", () => {
+  addFormValidator.disableSubmitBtn();
+  addCardPopup.open();
+});
 
 const editFormValidator = new FormValidator(
   validationSettings,
   profileEditModal
 );
+
 const addFormValidator = new FormValidator(validationSettings, placeAddModal);
 
 editFormValidator.enableValidation();
