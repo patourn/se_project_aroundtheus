@@ -65,7 +65,7 @@
             <input
               class="form__input"
               type="text"
-              name="description"
+              name="about"
               id="profile-description-input"
               placeholder="Description"
               minlength="2"
@@ -124,6 +124,37 @@
         <p class="modal__caption"></p>
       </div>
     </div>
+
+    <div class="modal modal_type_delete-card" id="delete-card-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" type="button"></button>
+        <h2 class="modal__heading">Are you sure?</h2>
+        <button class="modal__button">Yes</button>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-edit-avatar">
+      <div class="modal__container">
+        <button class="modal__close-button">
+          <h2 class="modal__heading">Change profile picture</h2>
+          <form class="form" id="edit-avatar-form">
+            <label for="avatar" class="modal__label">
+              <input
+                type="url"
+                name="avatar"
+                id="avatar"
+                placeholder="Link"
+                class="form__input"
+                required
+              />
+              <span class="form__error"></span>
+            </label>
+            <button class="form__button" type="submit">Save</button>
+          </form>
+        </button>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <img src=" " class="card__image" alt="" />

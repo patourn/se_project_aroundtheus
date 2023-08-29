@@ -24,10 +24,12 @@ import {
   profileTitle,
   profileDescriptionInput,
   profileDescription,
+  profileImage,
   placeTitleInput,
   imageURLInput,
   validationSettings,
 } from "../utils/constant.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 // fetch("https://around-api.en.tripleten-services.com/v1", {
 //   headers: {
@@ -47,36 +49,101 @@ const api = new Api({
   },
 });
 
-const initialApiCards = api.getInitialCards();
+const editAvatarPopup = new PopupWithForm("#modal-edit-avatar", (data) => {
+  return api.updateAvatar(data).then((res) => {
+    userInfo.setUserInfo(res);
+  })
+  .catch((err) => {
+    console.error(err);
+  })
+});
+editAvatarPopup.setEventListeners();
+
+document.querySelector(".profile__image").addEventListener("click", () => {
+  editAvatarPopup.open();
+});
+
+const confirmAction = (card, cardId) => {
+  return api.deleteCard(cardId).then(() => {
+    card.removeCard();
+  });
+};
+
+const deleteCardPopup = new PopupWithConfirmation({
+  popupSelector: "#delete-card-modal",
+  handleConfirm: confirmAction,
+});
+
+deleteCardPopup.setEventListeners();
+
+// const initialApiCards = api.getInitialCards();
 
 const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
-  const card = createCard(cardData);
-  section.addItem(card);
-  addCardPopup.close();
-  addFormValidator.disableSubmitBtn();
+  // const card = createCard(cardData);
+  // section.addItem(card);
+  // addCardPopup.close();
+  // addFormValidator.disableSubmitBtn();
+  // return api.addCard(cardData);
 
-  return api.addCard(cardData);
+  return api.addCard(cardData).then((res) => {
+    renderCard(res);
+  });
 });
 addCardPopup.setEventListeners();
 
 const userInfo = new UserInfo({
   nameSelector: profileTitle,
   jobSelector: profileDescription,
+  imageSelector: profileImage,
 });
+
+// const renderCard = (data) => {
+//  const cardElement = new Card(
+//    {
+//      name: data.name,
+//      link: data.link,
+//    },
+//    "#card-template",
+//    ({ name, link }) => {
+//      popupWithImage.open(name, link);
+//    }
+//  );
+//  section.addItem(cardElement.getView());
+// };
+
+const popupWithImage = new PopupWithImage("#preview-image-modal");
 
 const renderCard = (data) => {
   const cardElement = new Card(
     {
-      name: data.name,
-      link: data.link,
+      data: data,
+      handleImageClick: (imageData) => {
+        popupWithImage.open(imageData.name, imageData.link);
+      },
+      handleDeleteCard: (card, cardId) => {
+        deleteCardPopup.open(card, cardId);
+      },
+      confirmPopup: deleteCardPopup,
+      api: api,
     },
-    "#card-template",
-    ({ name, link }) => {
-      popupWithImage.open(name, link);
-    }
+    "#card-template"
   );
   section.addItem(cardElement.getView());
 };
+
+const section = new Section(
+  {
+    renderer: renderCard,
+  },
+  ".cards__list"
+);
+
+Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
+  ([userData, cards]) => {
+    userInfo.setUserInfo(userData);
+    section.renderItems(cards);
+  }
+);
 
 //const section = new Section(
 //  {
@@ -90,33 +157,35 @@ const renderCard = (data) => {
 //  ".cards__list"
 //);
 
-const section = new Section(
-  {
-    renderer: renderCard,
-  },
-  ".cards__list"
-);
+//const section = new Section(
+//  {
+//    renderer: renderCard,
+//  },
+//  ".cards__list"
+//);
 //section.renderItems(initialApiCards);
 
-const editProfilePopup = new PopupWithForm("#profile-edit-modal", (values) => {
-  userInfo.setUserInfo(values);
+const editProfilePopup = new PopupWithForm("#profile-edit-modal", (data) => {
+  return api.updateUserInfo(data).then((res) => {
+    userInfo.setUserInfo(res);
+  });
 });
 editProfilePopup.setEventListeners();
 
-const popupWithImage = new PopupWithImage("#preview-image-modal");
+// const popupWithImage = new PopupWithImage("#preview-image-modal");
 popupWithImage.setEventListeners();
 
-function createCard(cardData) {
-  const card = new Card(
-    { name: cardData.name, link: cardData.link },
-    "#card-template",
-    ({ name, link }) => {
-      popupWithImage.open(name, link);
-    }
-  );
+// function createCard(cardData) {
+//  const card = new Card(
+//    { name: cardData.name, link: cardData.link },
+//    "#card-template",
+//    ({ name, link }) => {
+//      popupWithImage.open(name, link);
+//    }
+//  );
 
-  return card.getView();
-}
+//  return card.getView();
+//}
 
 profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
