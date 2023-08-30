@@ -12,9 +12,6 @@ class Api {
         return Promise.reject(`Error: ${res.status}`);
       }
     });
-    //.then((res) => {
-    // console.log(res);
-    //});
   }
 
   getInitialCards() {

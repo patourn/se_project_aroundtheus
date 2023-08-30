@@ -1,5 +1,4 @@
 class Card {
-  // constructor({ name, link }, cardTemplate, handleImageClick) {
   constructor(
     { data, handleImageClick, handleDeleteCard, confirmPopup, api },
     cardTemplateSelector
@@ -55,10 +54,6 @@ class Card {
       this._api.unlikeCard(this._id);
     }
   };
-
-  // _handleDeleteCard = () => {
-  //   this._cardElement.remove();
-  // };
 
   getView() {
     this._cardElement = this._getTemplate();
