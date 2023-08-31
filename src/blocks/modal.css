@@ -134,6 +134,25 @@
   cursor: pointer;
   border-radius: 2px;
 }
+
+.modal__container-avatar {
+  width: 430px;
+  height: 272px;
+  /* top: 270px; */
+  /* left: 425px; */
+  position: relative;
+
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px;
+  /* padding-bottom: 30px; */
+}
+
+.modal__heading-avatar {
+}
+
+.modal__button-avatar {
+}
 @media screen and (max-width: 630px) {
   .modal__container {
     font-size: 14px;

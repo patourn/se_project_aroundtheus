@@ -25,6 +25,13 @@
   background-position: center;
 }
 
+.profile__image:hover {
+  background: #ffffff url(../images/Avatar-vector.png) center no-repeat;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+}
+
 .profile__title {
   font-family: "Inter", "Arial", sans-serif;
   font-size: 42px;
