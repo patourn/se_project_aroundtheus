@@ -6,7 +6,6 @@
   padding-top: 40px;
   padding-bottom: 51px;
   gap: 30px;
-  /* position: relative; */
 }
 
 .profile__info {
@@ -16,7 +15,6 @@
     "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   grid-gap: 18px;
-  /* position: relative; */
 }
 
 .profile__image {
@@ -30,16 +28,15 @@
 }
 
 .profile__image:hover {
-  /* position: absolute;
-  top: 0;
-  left: 0; */
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   background: rgba(0, 0, 0, 0.5) url(../images/Avatar-vector.png) center
     no-repeat;
   justify-content: center;
   align-items: center;
-  display: none;
+  /* width: 26px; */
+  /* height: 26px; */
+  display: flex;
 }
 
 .profile__title {
