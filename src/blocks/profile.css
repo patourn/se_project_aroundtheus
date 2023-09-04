@@ -23,7 +23,31 @@
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
+  overflow: hidden;
 }
+
+.profile__avatar-container {
+  position: relative;
+  height: 120px;
+  width: 120px;
+}
+.profile__image-pencil {
+  background: rgba(0, 0, 0, 0.5) url(../images/Avatar-vector.png) center
+    no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  border: 0;
+}
+
+.profile__image-pencil:hover {
+  opacity: 1;
+}
+
+
 
 .profile__title {
   font-family: "Inter", "Arial", sans-serif;
