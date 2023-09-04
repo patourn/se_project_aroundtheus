@@ -16,11 +16,18 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%= require('./images/jacques-cousteau.jpeg')%>"
-          />
-
+          <div class="profile__avatar-container">
+            <img
+              class="profile__image"
+              src="<%= require('./images/jacques-cousteau.jpeg')%>"
+            />
+            <button
+              aria-label="edit button"
+              class="profile__image-pencil"
+              type="button"
+              id="profile-image-pencil"
+            ></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -138,14 +145,13 @@
         <button class="modal__close-button"></button>
         <h2 class="modal__heading-avatar">Change profile picture</h2>
         <form class="form" id="edit-avatar-form">
-          <!-- <label for="avatar" class="form__fieldset-avatar"> -->
-          <label for="avatar" class="form__button">
+          <label for="avatar" class="form__label">
             <input
               type="url"
               name="avatar"
               id="avatar"
               placeholder="Link"
-              class="form__input-avatar"
+              class="form__input"
               required
             />
             <span class="form__error"></span>

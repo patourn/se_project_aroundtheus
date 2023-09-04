@@ -13,14 +13,15 @@
   width: 358px;
 }
 
-/* .form__fieldset-avatar {
+.form__label {
   display: flex;
   flex-direction: column;
   border: none;
   margin: 0 36px;
   padding: 0;
   width: 358px;
-} */
+}
+
 .form__input {
   font-family: "Inter", "Arial", sans-serif;
   border: none;
@@ -30,18 +31,18 @@
   margin-top: 30.04px;
 }
 
-.form__input-avatar {
+/* .form__input-avatar {
   font-family: "Inter", "Arial", sans-serif;
   border: none;
   height: 14px;
   padding-bottom: 13.04px;
   border-bottom: 0.4px solid rgba(84, 84, 84, 0.7);
   margin-top: 30.04px;
-  top: 335px;
-  /* position: center; */
-  /* display: flex;
+  top: 335px; */
+/* position: center; */
+/* display: flex;
   /* flex-direction: row; */
-}
+/* } */
 
 .form__button {
   height: 50.15px;

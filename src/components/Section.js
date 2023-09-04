@@ -1,6 +1,5 @@
 class Section {
   constructor({ renderer }, cardsList) {
-    // this._items = items;
     this._renderer = renderer;
     this._cardsList = document.querySelector(cardsList);
   }

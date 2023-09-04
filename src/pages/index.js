@@ -40,6 +40,12 @@ const api = new Api({
   },
 });
 
+const userInfo = new UserInfo({
+  nameSelector: profileTitle,
+  jobSelector: profileDescription,
+  imageSelector: profileImage,
+});
+
 const editAvatarPopup = new PopupWithForm("#modal-edit-avatar", (data) => {
   return api
     .updateAvatar(data)
@@ -75,12 +81,6 @@ const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
   });
 });
 addCardPopup.setEventListeners();
-
-const userInfo = new UserInfo({
-  nameSelector: profileTitle,
-  jobSelector: profileDescription,
-  imageSelector: profileImage,
-});
 
 const popupWithImage = new PopupWithImage("#preview-image-modal");
 

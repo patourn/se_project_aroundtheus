@@ -9,9 +9,7 @@ class PopupWithForm extends Popup {
     this._formInputs = this._popupElement.querySelectorAll(".form__input");
 
     this._submitButton = this._popupElement.querySelector(".form__button");
-    // this._submitButton = this._popupElement.querySelector(
-    //   ".form__fieldset-avatar"
-    // );
+
     this._submitButtonText = this._submitButton.textContent;
   }
 
