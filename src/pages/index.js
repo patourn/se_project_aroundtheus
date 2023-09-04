@@ -58,9 +58,11 @@ const editAvatarPopup = new PopupWithForm("#modal-edit-avatar", (data) => {
 });
 editAvatarPopup.setEventListeners();
 
-document.querySelector(".profile__image").addEventListener("click", () => {
-  editAvatarPopup.open();
-});
+document
+  .querySelector("#profile-image-pencil")
+  .addEventListener("click", () => {
+    editAvatarPopup.open();
+  });
 
 const confirmAction = (card, cardId) => {
   return api.deleteCard(cardId).then(() => {

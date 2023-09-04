@@ -92,13 +92,9 @@
 .modal__container-confirm {
   width: 430px;
   height: 181px;
-  /* top: 270px; */
-  /* left: 425px; */
   position: relative;
-
   background-color: #fff;
   border-radius: 10px;
-  /* padding-bottom: 30px; */
 }
 
 .modal__heading-confirm {
@@ -127,10 +123,7 @@
   font-family: "Inter", "Arial", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  /* border-radius: 2px; */
   padding: 0px;
-  /* width: 358px; */
-  /* margin-top: 365px; */
   cursor: pointer;
   border-radius: 2px;
 }
@@ -138,13 +131,10 @@
 .modal__container-avatar {
   width: 430px;
   height: 272px;
-  /* top: 270px; */
-  /* left: 425px; */
   position: relative;
   background-color: #fff;
   border-radius: 10px;
   border: 1px;
-  /* padding-bottom: 30px; */
 }
 
 .modal__heading-avatar {
@@ -156,49 +146,12 @@
   font-size: 24px;
   line-height: 29.05px;
   color: #000;
-
   top: 258px;
   left: 461px;
   margin-top: 36px;
   margin-left: 36px;
-
-  /* margin-top: 34px;
-  margin-right: 64px;
-  margin-left: 36px;
-  margin-bottom: 23.18px;
-  padding: 0;
-  height: 23px; 
-  font-family: "Inter", "Arial", sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 1.21;
-  color: #000;
-  margin-top: 34px;
-  margin-right: 64px;
-  margin-left: 36px;
-  margin-bottom: 23.18px;
-  padding: 0;*/
 }
 
-/* .modal__button-avatar {
-  width: 358px;
-  height: 50px;
-  margin-left: 36px;
-  margin-top: 12px;
-  line-height: 21.78px;
-  color: #fff;
-  background-color: #000;
-  font-family: "Inter", "Arial", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  /* border-radius: 2px; */
-/* padding: 0px;
-  /* width: 358px; */
-/* margin-top: 365px; */
-/* cursor: pointer; */
-/* border-radius: 2px; */
-/* }  */
 @media screen and (max-width: 630px) {
   .modal__container {
     font-size: 14px;
