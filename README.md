@@ -34,6 +34,6 @@ HTML, CSS, and JavaScript were my core technoligies used on this project.
 
 <img width="469" alt="Screenshot 2022-12-14 at 11 24 23 AM" src="https://user-images.githubusercontent.com/116469946/207651772-6f9bd9d5-a88b-4617-b043-4c70bc087bb2.png">
 
-- Link to my site:
+- Link to my project at GitHub Pages:
 
-https://patourn.github.io/se_project_aroundtheus
+https://github.com/patourn/se_project_aroundtheus.git
