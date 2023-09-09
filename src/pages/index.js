@@ -166,5 +166,11 @@ const editFormValidator = new FormValidator(
 
 const addFormValidator = new FormValidator(validationSettings, placeAddModal);
 
+const editAvatarFormValidator = new FormValidator(
+  validationSettings,
+  previewImageModal
+);
+
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+editAvatarFormValidator.enableValidation();
