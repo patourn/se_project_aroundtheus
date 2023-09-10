@@ -87,6 +87,7 @@ const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
   return api
     .addCard(cardData)
     .then((res) => {
+      console.log(res);
       renderCard(res);
     })
     .catch((error) => {
@@ -113,10 +114,7 @@ const renderCard = (data) => {
     "#card-template"
   );
 
-  const renderCard = (data) => {
-    const cardElement = createCard(data);
-    section.addItem(cardElement);
-  };
+  document.querySelector(".cards__list").prepend(cardElement.getView());
 };
 
 const section = new Section(
