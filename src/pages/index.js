@@ -52,8 +52,8 @@ const editAvatarPopup = new PopupWithForm("#modal-edit-avatar", (data) => {
     .then((res) => {
       userInfo.setUserInfo(res);
     })
-    .catch((err) => {
-      console.error(err);
+    .catch((error) => {
+      console.error(error);
     });
 });
 editAvatarPopup.setEventListeners();
@@ -62,12 +62,18 @@ document
   .querySelector("#profile-image-pencil")
   .addEventListener("click", () => {
     editAvatarPopup.open();
+    editFormValidator.resetValidation();
   });
 
 const confirmAction = (card, cardId) => {
-  return api.deleteCard(cardId).then(() => {
-    card.removeCard();
-  });
+  return api
+    .deleteCard(cardId)
+    .then(() => {
+      card.removeCard();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 const deleteCardPopup = new PopupWithConfirmation({
@@ -78,9 +84,14 @@ const deleteCardPopup = new PopupWithConfirmation({
 deleteCardPopup.setEventListeners();
 
 const addCardPopup = new PopupWithForm("#place-add-modal", (cardData) => {
-  return api.addCard(cardData).then((res) => {
-    renderCard(res);
-  });
+  return api
+    .addCard(cardData)
+    .then((res) => {
+      renderCard(res);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
 addCardPopup.setEventListeners();
 
@@ -101,7 +112,11 @@ const renderCard = (data) => {
     },
     "#card-template"
   );
-  section.addItem(cardElement.getView());
+
+  const renderCard = (data) => {
+    const cardElement = createCard(data);
+    section.addItem(cardElement);
+  };
 };
 
 const section = new Section(
@@ -119,9 +134,14 @@ Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
 );
 
 const editProfilePopup = new PopupWithForm("#profile-edit-modal", (data) => {
-  return api.updateUserInfo(data).then((res) => {
-    userInfo.setUserInfo(res);
-  });
+  return api
+    .updateUserInfo(data)
+    .then((res) => {
+      userInfo.setUserInfo(res);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
 editProfilePopup.setEventListeners();
 
@@ -146,5 +166,11 @@ const editFormValidator = new FormValidator(
 
 const addFormValidator = new FormValidator(validationSettings, placeAddModal);
 
+const editAvatarFormValidator = new FormValidator(
+  validationSettings,
+  previewImageModal
+);
+
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+editAvatarFormValidator.enableValidation();

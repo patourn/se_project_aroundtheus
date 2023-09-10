@@ -47,11 +47,14 @@ class Card {
   }
 
   _handleLikeIcon = () => {
-    this._likeButton.classList.toggle("card__like-button_active");
     if (this._cardElement.querySelector(".card__like-button_active")) {
-      this._api.likeCard(this._id);
+      this._api.likeCard(this._id).then(() => {
+        this._likeButton.classList.add("card__like-button_active");
+      });
     } else {
-      this._api.unlikeCard(this._id);
+      this._api.unlikeCard(this._id).then(() => {
+        this._likeButton.classList.remove("card__like-button_active");
+      });
     }
   };
 
