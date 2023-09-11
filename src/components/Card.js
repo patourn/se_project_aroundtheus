@@ -47,7 +47,7 @@ class Card {
   }
 
   _handleLikeIcon = () => {
-    if (this._cardElement.querySelector(".card__like-button_active")) {
+    if (!this._isLiked) {
       this._api.likeCard(this._id).then(() => {
         this._likeButton.classList.add("card__like-button_active");
       });
