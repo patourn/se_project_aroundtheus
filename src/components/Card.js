@@ -50,11 +50,18 @@ class Card {
     if (!this._isLiked) {
       this._api.likeCard(this._id).then(() => {
         this._likeButton.classList.add("card__like-button_active");
+        this._isLiked = !this._isLiked;
       });
     } else {
-      this._api.unlikeCard(this._id).then(() => {
-        this._likeButton.classList.remove("card__like-button_active");
-      });
+      this._api
+        .unlikeCard(this._id)
+        .then(() => {
+          this._likeButton.classList.remove("card__like-button_active");
+          this._isLiked = !this._isLiked;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 

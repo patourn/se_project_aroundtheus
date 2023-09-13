@@ -61,6 +61,8 @@ export const placeTitleInput = document.querySelector("#place-title-input");
 export const imageURLInput = document.querySelector("#image-url-input");
 //
 
+export const modalEditAvatar = document.querySelector("#modal-edit-avatar");
+
 export const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 

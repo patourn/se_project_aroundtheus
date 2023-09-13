@@ -22,6 +22,7 @@ import {
   placeAddModal,
   profileTitleInput,
   profileTitle,
+  modalEditAvatar,
   profileDescriptionInput,
   profileDescription,
   profileImage,
@@ -62,7 +63,7 @@ document
   .querySelector("#profile-image-pencil")
   .addEventListener("click", () => {
     editAvatarPopup.open();
-    editFormValidator.resetValidation();
+    editAvatarFormValidator.resetValidation();
   });
 
 const confirmAction = (card, cardId) => {
@@ -114,7 +115,7 @@ const renderCard = (data) => {
     "#card-template"
   );
 
-  document.querySelector(".cards__list").prepend(cardElement.getView());
+  section.addItem(cardElement.getView());
 };
 
 const section = new Section(
@@ -124,12 +125,14 @@ const section = new Section(
   ".cards__list"
 );
 
-Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
-  ([userData, cards]) => {
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
     userInfo.setUserInfo(userData);
     section.renderItems(cards);
-  }
-);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 const editProfilePopup = new PopupWithForm("#profile-edit-modal", (data) => {
   return api
@@ -166,7 +169,7 @@ const addFormValidator = new FormValidator(validationSettings, placeAddModal);
 
 const editAvatarFormValidator = new FormValidator(
   validationSettings,
-  previewImageModal
+  modalEditAvatar
 );
 
 editFormValidator.enableValidation();
