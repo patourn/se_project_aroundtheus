@@ -48,10 +48,15 @@ class Card {
 
   _handleLikeIcon = () => {
     if (!this._isLiked) {
-      this._api.likeCard(this._id).then(() => {
-        this._likeButton.classList.add("card__like-button_active");
-        this._isLiked = !this._isLiked;
-      });
+      this._api
+        .likeCard(this._id)
+        .then(() => {
+          this._likeButton.classList.add("card__like-button_active");
+          this._isLiked = !this._isLiked;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     } else {
       this._api
         .unlikeCard(this._id)
