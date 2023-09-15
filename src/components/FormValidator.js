@@ -16,10 +16,18 @@ class FormValidator {
   }
 
   _hideInputError(inputEl) {
+    // console.log(inputEl.id);
     const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.remove(this._inputErrorClass);
+    // console.log("===");
+    // console.log(errorMessageEl);
     errorMessageEl.textContent = "";
     errorMessageEl.classList.remove(this._errorClass);
+  }
+
+  resetValidation() {
+    this._toggleButtonState();
+    this._inputEls.forEach((input) => this._hideInputError(input));
   }
 
   _toggleButtonState() {
